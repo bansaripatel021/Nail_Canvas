@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Canvas | Bansari Patel</title>
+    <link rel="shortcut icon" href="images/fevicon1.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="loader-overlay">
+        <div class="loader-container">
+            <div class="nail-polish">
+                <div class="bottle">
+                    <div class="liquid"></div>
+                </div>
+                <div class="brush"></div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="brand-name text-2xl"><a href="#">Nail Canvas</a></div>
+                <button class="mobile-menu-btn md:hidden">
+                    <i class="fas fa-bars text-gray-600 text-2xl"></i>
+                </button>
+                
+                <div class="nav-desktop hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600">Home</a>
+                    <a href="#about" class="nav-link text-gray-600">About</a>
+                    <a href="#gallery" class="nav-link text-gray-600">What We Do</a>
+                    <a href="#contact" class="nav-link text-gray-600">Contact</a>
+                    <a href="booking.html" class="nav-link text-gray-600">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-background min-h-screen flex items-center justify-center pt-16">
+        <div class="text-center z-10" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-text">
+                <h1 class="text-6xl font-bold text-gray-800 mb-6">Hello Welcome <span style='font-size:50px;'>&#128075;</span></h1>
+                <p class="text-2xl text-gray-600 mb-8">Nail Artist & Designer</p>
+                <a href="#about" class="bg-pink-400 text-white px-8 py-3 rounded-full hover:bg-pink-500 transition-all duration-300 inline-block" data-aos="fade-up" data-aos-delay="200">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="section-heading text-3xl font-semibold text-center mb-12" data-aos="fade-up">About Me</h2>
+            <div class="text-gray-600">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2" data-aos="fade-right">
+                        <div class="about-image-container">
+                            <img src="./images/placeholder-profile.jpeg" alt="Nail Artist Profile" class="rounded-lg shadow-xl">
+                            <div class="about-image-decoration"></div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+                        <div class="about-content">
+                            <div class="about-text-container">
+                                <p class="about-text-paragraph">
+                                    Hello! My name is Bansari Patel, I'm a passionate nail technician specializing in creative and beautiful nail designs. I'm dedicated to bringing out the best in every set I do.
+                                </p>
+                                <p class="about-text-paragraph">
+                                    I'm constantly learning and growing to offer quality nail services to my amazing clients at competitive prices.
+                                </p>
+                            </div>
+                            <div class="flex gap-4 mt-8">
+                                <div class="feature-pill">
+                                    <i class="fas fa-heart text-pink-400"></i>
+                                    <span>Passionate</span>
+                                </div>
+                                <div class="feature-pill">
+                                    <i class="fas fa-star text-pink-400"></i>
+                                    <span>Creative</span>
+                                </div>
+                            </div>
+                            <a href="booking.html" class="inline-block mt-6 px-8 py-3 bg-pink-400 text-white rounded-full hover:bg-pink-500 transition-all duration-300 shadow-lg hover:shadow-xl">
+                                Book Your Session
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="what-we-do-section">
+        <h2>What We Do</h2>
+        <div class="services">
+            <div class="service-item">
+                <img src="/images/nail-art.jpeg" alt="Nail Art">
+                <h3>Nail Art</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+            </div>
+            <div class="service-item">
+                <img src="manicure-icon.png" alt="Manicure">
+                <h3>Manicure</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+            </div>
+            <div class="service-item">
+                <img src="pedicure-icon.png" alt="Pedicure">
+                <h3>Pedicure</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+            </div>
+            <div class="service-item">
+                <img src="paraffin-wax-icon.png" alt="Paraffin Wax">
+                <h3>Paraffin Wax</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl font-semibold text-center mb-8">What We Do</h2>
+            <div class="gallery-container relative">
+                <div class="gallery-wrapper flex overflow-hidden">
+                    <!-- Gallery items will be populated via JavaScript -->
+                </div>
+                <button class="gallery-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact-section">
+        <h2 class="text-3xl font-semibold text-center mb-8">Contact Us</h2>
+        <h2 align="center">We'd love to hear from you!</h2><br>
+        <form action="#" method="post" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+    
+
+    <footer class="bg-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="contact-details">
+                <p>Phone: +91 84013 64756</p>
+                <p>Email: bansaripatel021@gmail.com</p>
+                <p>Address: Ahmedabad, Gujarat</p>
+            </div><br>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/_thebansaripatel" class="text-gray-600 hover:text-pink-400">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="text-gray-600">© 2025 Nail Canvas | Bansari Patel. All rights reserved.</p>
+            
+            
+        </div>
+    </footer>
+
+    <nav class="mobile-nav">
+        <div class="mobile-nav-items">
+            <a href="#home" class="mobile-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#about" class="mobile-nav-item">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="#gallery" class="mobile-nav-item">
+                <i class="fas fa-images"></i>
+                <span>Gallery</span>
+            </a>
+            <a href="booking.html" class="mobile-nav-item">
+                <i class="fas fa-calendar"></i>
+                <span>Book</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-overlay');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    AOS.init({
+                        duration: 800,
+                        easing: 'ease-in-out',
+                        once: false,
+                        mirror: true
+                    });
+                }, 500);
+            }, 1500);
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const websiteAd = document.querySelector('.website-ad');
+            const trigger = websiteAd.querySelector('.website-ad-trigger');
+            
+            // Open portfolio on click
+            trigger.addEventListener('click', () => {
+                window.open('https://gtsrhythm.github.io/personal-portfolio/', '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

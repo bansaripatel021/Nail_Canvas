@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Book Now - Nail Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Add loader here -->
+    <div class="loader-overlay">
+        <div class="loader-container">
+            <div class="nail-polish">
+                <div class="bottle">
+                    <div class="liquid"></div>
+                </div>
+                <div class="brush"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="brand-name text-2xl">Nail Page</div>
+                <button class="mobile-menu-btn md:hidden">
+                    <i class="fas fa-bars text-gray-600 text-2xl"></i>
+                </button>
+                <div class="nav-desktop hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-600">Home</a>
+                    <a href="booking.html" class="nav-link text-gray-600">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-20 pb-12 bg-gradient-to-b from-pink-50 to-white min-h-screen fade-in">
+        <div class="booking-container slide-up">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center fade-in">Book Your Session</h1>
+            
+            <div class="availability-info mb-8 slide-up" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fas fa-clock text-pink-400"></i>
+                    <h3 class="font-semibold">Available Hours</h3>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-calendar-day text-pink-300"></i>
+                        Weekdays: 10:00 AM - 6:00 PM
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-calendar-week text-pink-300"></i>
+                        Weekends: 11:00 AM - 4:00 PM
+                    </li>
+                </ul>
+                <div class="booking-tip">
+                    <p class="text-sm text-gray-600">
+                        <span class="font-semibold text-pink-600">💅 Pro Tip:</span> 
+                        While appointments are available in 1-hour slots, booking 2 hours is recommended 
+                        for a relaxed experience and detailed work. This ensures the best possible results 
+                        without rushing.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="booking-step slide-up" data-aos="fade-up" data-aos-delay="200">
+                    <div class="booking-section-header">
+                        <i class="fas fa-magic"></i>
+                        Select Your Service
+                    </div>
+                    <select class="service-select w-full" id="service-select">
+                        <option value="chrome">Chrome Nails</option>
+                        <option value="acrylic">Acrylic Nails</option>
+                        <option value="manicure">Manicure</option>
+                        <option value="french">Frenchies</option>
+                        <option value="gel">Gel Art</option>
+                        <option value="bling">Bling Set</option>
+                    </select>
+                </div>
+
+                <div class="booking-step slide-up" data-aos="fade-up" data-aos-delay="300">
+                    <div class="booking-section-header">
+                        <i class="fas fa-calendar"></i>
+                        Choose a Date
+                    </div>
+                    <div class="calendar-header flex justify-between items-center mb-4">
+                        <button class="prev-month p-2 hover:bg-pink-50 rounded-full">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h3 class="text-lg font-semibold"></h3>
+                        <button class="next-month p-2 hover:bg-pink-50 rounded-full">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="calendar-grid" id="calendar">
+                        <!-- Calendar will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="booking-step slide-up" data-aos="fade-up" data-aos-delay="400">
+                    <div class="booking-section-header">
+                        <i class="fas fa-clock"></i>
+                        Select a Time
+                    </div>
+                    <div class="time-slots" id="time-slots">
+                        <!-- Time slots will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <button id="book-btn" class="w-full slide-up" data-aos="fade-up" data-aos-delay="500">
+                    Book Appointment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 shadow-xl" data-aos="zoom-in">
+            <h3 class="text-2xl font-semibold mb-4">Confirm Your Booking</h3>
+            <div class="booking-summary mb-4 p-4 bg-pink-50 rounded-lg">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fas fa-calendar text-pink-400"></i>
+                    <span id="summary-date" class="font-medium"></span>
+                </div>
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fas fa-clock text-pink-400"></i>
+                    <span id="summary-time" class="font-medium"></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-spa text-pink-400"></i>
+                    <span id="summary-service" class="font-medium"></span>
+                </div>
+            </div>
+            <form id="booking-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+                    <input type="text" id="client-name" required
+                        class="w-full px-4 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-400">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Contact Preference *</label>
+                    <select id="contact-type" required
+                        class="w-full px-4 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-400">
+                        <option value="phone">Phone Number</option>
+                        <option value="email">Email</option>
+                        <option value="instagram">Instagram</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Contact Info *</label>
+                    <input type="text" id="contact-info" required
+                        class="w-full px-4 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-400">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Notes & Allergies
+                        <span class="text-xs text-gray-500">(Optional - Please mention any allergies or special requests)</span>
+                    </label>
+                    <textarea id="booking-notes" rows="3"
+                        placeholder="Example: I'm allergic to latex, prefer non-toxic products, etc."
+                        class="w-full px-4 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-400 resize-none"></textarea>
+                </div>
+                <div class="flex gap-4 pt-4">
+                    <button type="button" id="cancel-booking"
+                        class="flex-1 px-4 py-2 border-2 border-pink-400 text-pink-500 rounded-lg hover:bg-pink-50">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                        class="flex-1 px-4 py-2 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-lg hover:from-pink-500 hover:to-pink-600">
+                        Confirm Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Sidebar -->
+    <div id="admin-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <!-- Login Section -->
+        <div id="login-section" class="p-6">
+            <h2 class="text-2xl font-semibold mb-6">Admin Login</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="admin-password" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-400">
+                </div>
+                <button id="admin-login" 
+                        class="w-full px-4 py-2 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-lg hover:from-pink-500 hover:to-pink-600">
+                    Login
+                </button>
+            </div>
+        </div>
+
+        <!-- Bookings Section -->
+        <div id="bookings-section" class="hidden h-full flex flex-col">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h2 class="text-xl font-semibold">Bookings</h2>
+                <button id="admin-logout" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+            
+            <div class="p-4 border-b">
+                <div class="relative">
+                    <input type="text" id="booking-search" 
+                           placeholder="Search bookings..."
+                           class="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-400">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+
+            <div id="bookings-list" class="flex-1 overflow-y-auto p-4 space-y-4">
+                <!-- Bookings will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Toggle Button -->
+    <button id="admin-toggle" class="fixed bottom-4 right-4 bg-pink-400 text-white p-3 rounded-full shadow-lg hover:bg-pink-500 transition-all duration-300">
+        <i class="fas fa-lock"></i>
+    </button>
+
+    <!-- Update AOS initialization to include loader -->
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-overlay');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    AOS.init({
+                        duration: 800,
+                        easing: 'ease-in-out',
+                        once: false,
+                        mirror: true
+                    });
+                }, 500);
+            }, 1500);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedService = sessionStorage.getItem('selectedService');
+            if (selectedService) {
+                const serviceSelect = document.querySelector('#service-select'); // Adjust selector as needed
+                if (serviceSelect) {
+                    serviceSelect.value = selectedService;
+                }
+                // Clear the selection from session storage
+                sessionStorage.removeItem('selectedService');
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/gistService.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/adminPanel.js"></script>
+
+    <nav class="mobile-nav">
+        <div class="mobile-nav-items">
+            <a href="index.html" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="index.html#about" class="mobile-nav-item">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="index.html#gallery" class="mobile-nav-item">
+                <i class="fas fa-images"></i>
+                <span>Gallery</span>
+            </a>
+            <a href="booking.html" class="mobile-nav-item active">
+                <i class="fas fa-calendar"></i>
+                <span>Book</span>
+            </a>
+        </div>
+    </nav>
+</body>
+</html>
